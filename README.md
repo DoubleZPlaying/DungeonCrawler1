@@ -15,17 +15,17 @@ HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 
 Monsters:
 - Zombie
-  - 10, 1-3, $10-20, 1/1
+  - 10, 1-3, $10-20 (1), 1/1
 - Vampire
-  - 15, 2-5, $20-30, 1/1
+  - 15, 2-5, $20-30 (2), 1/1
 - Witch
-  - 15, 4-5, $20-35, 1/2
+  - 15, 4-5, $20-35 (3), 1/2
 - Troll
-  - 20, 4-6, $35-50, 1/2
+  - 20, 4-6, $35-50 (4), 1/2
 - Sorcerer
-  - 20, 5-7, $50-70, 1/3
+  - 20, 5-7, $50-70 (5), 1/3
 - Giant
-  - 30, 5-7, $50-70, 1/4
+  - 30, 5-7, $50-70 (6), 1/4
 
 Player Stats:
 HP, Attack Damage, Armor Points (all default)
