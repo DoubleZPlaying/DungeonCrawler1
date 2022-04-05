@@ -12,6 +12,7 @@ Ideas:
 
 Monster Stats:
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
+
 Monsters:
 - Zombie
   - 10, 1-3, $10-20, 1/1
@@ -25,3 +26,11 @@ Monsters:
   - 20, 5-7, $50-70, 1/3
 - Giant
   - 30, 5-7, $50-70, 1/4
+
+Player Stats:
+HP, Attack Damage, Armor Points (all default)
+10, 3-4, 5, 
+
+NOTES:
+Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
+Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
