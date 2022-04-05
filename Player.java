@@ -50,6 +50,6 @@ public class Player
 
     public void getAttack()
     {
-        int attackDamage = (int)(Math.random() * (attack2 + 1) + attack1);
+        int attackDamage = (int)(Math.random() * ((attack2-attack1) + 1) + attack1);
     }
 }
