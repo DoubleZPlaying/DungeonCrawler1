@@ -48,8 +48,9 @@ public class Player
         this.attack2 = attack2;
     }
 
-    public void getAttack()
+    public int getAttack()
     {
         int attackDamage = (int)(Math.random() * ((attack2-attack1) + 1) + attack1);
+        return attackDamage;
     }
 }
