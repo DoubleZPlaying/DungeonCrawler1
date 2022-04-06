@@ -5,6 +5,7 @@ public class Monster
     int attack2 = 0;
     int loot = 0;
     int speed = 0;
+    int money = 0;
 
     public Monster(int hp, int attack1, int attack2, int loot, int speed)
     {
@@ -47,41 +48,218 @@ public class Monster
         return speed;
     }
 
-    public void getMoney()
+    public int getMoney()
     {
         if(loot == 1)
         {
-            System.out.println((int)(Math.random() * (10 + 1) + 10));
+            money = (int)(Math.random() * (10 + 1) + 10);
+            return money;
         }
 
-        if(loot == 2)
+        else if(loot == 2)
         {
-            System.out.println((int)(Math.random() * (10 + 1) + 20));
+            money = (int)(Math.random() * (10 + 1) + 20);
+            return money;
         }
 
-        if(loot == 3)
+        else if(loot == 3)
         {
-            System.out.println((int)(Math.random() * (15 + 1) + 20));
+            money = (int)(Math.random() * (15 + 1) + 20);
+            return money;
         }
 
-        if(loot == 4)
+        else if(loot == 4)
         {
-            System.out.println((int)(Math.random() * (15 + 1) + 35));
+            money = (int)(Math.random() * (15 + 1) + 35);
+            return money;
         }
 
-        if(loot == 5)
+        else if(loot == 5)
         {
-            System.out.println((int)(Math.random() * (20 + 1) + 50));
+            money = (int)(Math.random() * (20 + 1) + 50);
+            return money;
         }
 
-        if(loot == 6)
+        else //if(loot == 6)
         {
-            System.out.println((int)(Math.random() * (20 + 1) + 50));
+            money = (int)(Math.random() * (20 + 1) + 50);
+            return money;
         }
     }
 
     public String getLoot()
     {
-        
+        String armorType;
+        String weaponType;
+        int armorRoll = 0;
+        int weaponRoll = 0;
+
+        //zombie loot
+        if(loot == 1)
+        {
+            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (1 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Leather";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "Brigandine";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Steel Sword";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Mace";
+            }
+        }
+
+        //vampire loot
+        else if(loot == 2)
+        {
+            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (1 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Brigandine";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Steel Sword";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Knightly Sword";
+            }
+        }
+
+        //witch loot
+        else if(loot == 3)
+        {
+            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (1 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Chainmail";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Knightly Sword";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Gladius";
+            }
+        }
+
+        //troll loot
+        else if(loot == 4)
+        {
+            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (2 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Chainmail";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Knightly Sword";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Mace";
+            }
+
+            else if(weaponRoll == 3)
+            {
+                weaponType = "Ulfberht";
+            }
+        }
+
+        //giant loot
+        else if(loot == 5)
+        {
+            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (1 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Chainmail";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "Plate";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Ulfberht";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Scimitar";
+            }
+        }
+
+        //sorcerer loot
+        else
+        {
+            armorRoll = (int)(Math.random() * (2 + 1) + 1);
+            weaponRoll = (int)(Math.random() * (1 + 1) + 1);
+
+            if(armorRoll == 1)
+            {
+                armorType = "Chainmail";
+            }
+            else if(armorRoll == 2)
+            {
+                armorType = "Plate";
+            }
+
+            else if(armorRoll == 3)
+            {
+                armorType = "Shield";
+            }
+
+            if(weaponRoll == 1)
+            {
+                weaponType = "Scimitar";
+            }
+
+            else if(weaponRoll == 2)
+            {
+                weaponType = "Katana";
+            }
+        }
+
+        //ADD RETURN STATEMENT
     }
 }
