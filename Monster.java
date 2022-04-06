@@ -87,7 +87,7 @@ public class Monster
         }
     }
 
-    public String getLoot()
+    public String[] getLoot()
     {
         String armorType = "";
         String weaponType = "";
@@ -263,24 +263,37 @@ public class Monster
 
         armorPiece = (int)(Math.random() * (3 + 1) + 1);
 
+        String arr[] = {};
+        
+        //return
         if(armorPiece == 1) //helmet
         {
-            return armorType + " Helmet, and a " + weaponType;
+            arr[0] = armorType;
+            arr[1] = "Helmet";
+            arr[2] = weaponType;
         }
         
         else if(armorPiece == 2) //chestplate
         {
-            return armorType + " Chestplate, and a " + weaponType;
+            arr[0] = armorType;
+            arr[1] = "Chestplate";
+            arr[2] = weaponType;
         }
 
         else if(armorPiece == 3) //pants
         {
-            return armorType + " Pants, and a " + weaponType;
+            arr[0] = armorType;
+            arr[1] = "Pants";
+            arr[2] = weaponType;
         }
 
-        else//if(armorPiece == 4) //boots
+        else if(armorPiece == 4) //boots
         {
-            return armorType + " Boots, and a " + weaponType;
+            arr[0] = armorType;
+            arr[1] = "Boots";
+            arr[2] = weaponType;
         }
+
+        return arr;
     }
 }

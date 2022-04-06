@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main
 {
-    
+    public static double version = 1.0;
     public static void main (String[] args)
     {
         Scanner input = new Scanner(System.in);
@@ -12,9 +12,28 @@ public class Main
         Monster witch = new Monster(15, 4, 5, 3, 2);
         Monster troll = new Monster(20, 4, 5, 4, 2);
         Monster giant = new Monster(30, 5, 7, 6, 4);
-        Monster sorcerer = new Monster(20, 5, 7, 5, 3);
+        Monster sorcerer = new Monster(20, 5, 7, 5, 3); 
 
+        String temp;
+        int in;
+
+        System.out.println("Welcome to DUNGEON CRAWLER 1, v" + version);
+        System.out.println("");
+        System.out.print("To open the how to play page press 1, to play press 2, to quit press 3: ");
+        in = input.nextInt();
+        temp = input.nextLine();
 
         input.close();
+    }
+
+    public static void help()
+    {
+        System.out.println("HOW TO PLAY");
+        System.out.println("Welcome to Dungeon Crawler 1, version " + version + ".");
+        System.out.println("In this game, you, the player, are an explorer in a long-hidden in the dungeon. In this dungeon are monsters you will have to fight to gain loot and money.");
+        System.out.println("Monster Stats:");
+        System.out.println("- Zombie: 10 HP, 1-3 attack damage, 1/1 attack speed");
+        System.out.println("- Vampire: 15 HP, 2-5 attack damage, 1/1 attack speed");
+
     }
 }
