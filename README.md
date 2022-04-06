@@ -34,3 +34,6 @@ HP, Attack Damage, Armor Points (all default)
 NOTES:
 Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
 Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
+
+Loot:
+- 
