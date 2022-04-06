@@ -29,7 +29,7 @@ Monsters:
 
 Player Stats:
 HP, Attack Damage, Armor Points (all default)
-10, 3-4, 5, 
+10, 1-2, 5, 
 
 NOTES:
 Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
