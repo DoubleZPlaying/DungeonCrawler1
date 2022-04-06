@@ -89,10 +89,11 @@ public class Monster
 
     public String getLoot()
     {
-        String armorType;
-        String weaponType;
+        String armorType = "";
+        String weaponType = "";
         int armorRoll = 0;
         int weaponRoll = 0;
+        int armorPiece = 0;
 
         //zombie loot
         if(loot == 1)
@@ -260,6 +261,26 @@ public class Monster
             }
         }
 
-        //ADD RETURN STATEMENT
+        armorPiece = (int)(Math.random() * (3 + 1) + 1);
+
+        if(armorPiece == 1) //helmet
+        {
+            return armorType + " Helmet, and a " + weaponType;
+        }
+        
+        else if(armorPiece == 2) //chestplate
+        {
+            return armorType + " Chestplate, and a " + weaponType;
+        }
+
+        else if(armorPiece == 3) //pants
+        {
+            return armorType + " Pants, and a " + weaponType;
+        }
+
+        else//if(armorPiece == 4) //boots
+        {
+            return armorType + " Boots, and a " + weaponType;
+        }
     }
 }

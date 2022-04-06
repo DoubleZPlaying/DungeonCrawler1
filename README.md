@@ -40,7 +40,7 @@ Armor Tiers:
 - Brigandine armor (+2 per piece)
 - Chainmail armor (+3 per piece)
 - Plate armor (+4 per piece)
-- Shield (adds +2 armor)
+- Shield (adds +2 armor, marked as 5 in armorType in Monster.getLoot())
 
 Weapon Tiers:
 - Stone Club (1, 2 attack)
