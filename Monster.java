@@ -1,5 +1,6 @@
 public class Monster
 {
+    String name;
     int hp = 0;
     int attack1 = 0;
     int attack2 = 0;
@@ -7,13 +8,19 @@ public class Monster
     int speed = 0;
     int money = 0;
 
-    public Monster(int hp, int attack1, int attack2, int loot, int speed)
+    public Monster(String name, int hp, int attack1, int attack2, int loot, int speed)
     {
+        this.name = name;
         this.hp = hp;
         this.attack1 = attack1;
         this.attack2 = attack2;
         this.loot = loot;
         this.speed = speed;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 
     public void setHP(int hp)

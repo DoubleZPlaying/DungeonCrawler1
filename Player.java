@@ -3,12 +3,13 @@ public class Player
     int hp = 0;
     int attack1 = 0;
     int attack2 = 0;
-    int armor = 0;
-    int helmet = 0;
-    int chestplate = 0;
-    int pants = 0;
-    int boots = 0;
-    int gauntlets = 0;
+    int armor = -1;
+    int helmet = -1;
+    int chestplate = -1;
+    int pants = -1;
+    int boots = -1;
+    int gauntlets = -1;
+    int shield = -1;
     int totalHP = 0;
 
     public Player(int hp, int attack1, int attack2, int armor)
@@ -180,6 +181,48 @@ public class Player
         else //if(boots == 4)
         {
             return "Plate Boots";
+        }
+    }
+
+    public void setGauntlets(int gauntlets)
+    {
+        if(gauntlets > this.gauntlets)
+        {
+            this.gauntlets = gauntlets;
+        }
+    }
+
+    public String getGauntlets()
+    {
+        if(gauntlets == 1)
+        {
+            return "don't have gauntlets";
+        }
+
+        else //if(gauntlets == 2)
+        {
+            return "do have gauntlets";
+        }
+    }
+
+    public void setShield(int shield)
+    {
+        if(shield > this.shield)
+        {
+            this.shield = shield;
+        }
+    }
+
+    public String getShield()
+    {
+        if(shield == 1)
+        {
+            return "don't have a shield";
+        }
+
+        else //if(shield == 2)
+        {
+            return "do have a shield";
         }
     }
 }
