@@ -11,8 +11,8 @@ public class Main
         Monster vampire = new Monster(15, 2, 5, 2, 1);
         Monster witch = new Monster(15, 4, 5, 3, 2);
         Monster troll = new Monster(20, 4, 5, 4, 2);
-        Monster giant = new Monster(30, 5, 7, 6, 4);
-        Monster sorcerer = new Monster(20, 5, 7, 5, 3); 
+        Monster giant = new Monster(30, 5, 7, 6, 3);
+        Monster sorcerer = new Monster(25, 7, 9, 5, 3); 
 
         String temp;
         int in;
@@ -34,6 +34,10 @@ public class Main
         System.out.println("Monster Stats:");
         System.out.println("- Zombie: 10 HP, 1-3 attack damage, 1/1 attack speed");
         System.out.println("- Vampire: 15 HP, 2-5 attack damage, 1/1 attack speed");
+        System.out.println("- Witch: 15 HP, 4-5 attack damage, 1/2 attack speed");
+        System.out.println("- Troll: 20 HP, 4-6 attack damage, 1/2 attack speed");
+        System.out.println("- Giant: 30 HP, 5-7 attack damage, 1/3 attack speed");
+        System.out.println("- Sorcerer: 25 HP ")
 
     }
 }

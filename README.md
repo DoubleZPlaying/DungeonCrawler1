@@ -23,9 +23,9 @@ Monsters:
 - Troll
   - 20, 4-6, $35-50 (4), 1/2 (2)
 - Giant
-  - 30, 5-7, $50-70 (6), 1/4 (4)
+  - 30, 5-7, $50-70 (6), 1/3 (4)
 - Sorcerer
-  - 20, 5-7, $50-70 (5), 1/3 (3)
+  - 25, 7-9, $50-70 (5), 1/3 (3)
 
 Player Stats:
 HP, Attack Damage, Armor Points (all default)
