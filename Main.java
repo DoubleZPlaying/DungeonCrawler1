@@ -7,7 +7,7 @@ public class Main
     public static void main (String[] args)
     {
         Scanner input = new Scanner(System.in);
-        ArrayList<Monster> db = new ArrayList<Monster>;
+        ArrayList<Monster> db = new ArrayList<Monster>();
         Player player1 = new Player(10, 1, 2, 5);
         Monster zombie = new Monster("Zombie", 10, 1, 3, 1, 1);
         db.add(zombie);
@@ -28,9 +28,11 @@ public class Main
         player1.setBoots(1);
         player1.setGauntlets(1);
         player1.setShield(1);
+        player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
 
         String temp;
         String fight;
+        boolean defend = false;
         int in;
         int run = 0;
 
@@ -92,18 +94,209 @@ public class Main
                 m = 5;
             }
 
-            System.out.println("In the middle of the room stands a " + db.get(m).getName() + ", ready to fight.")
-            System.out.println("Will you attack or protect yourself?");
-            fight = input.nextLine();
-            fight.toLowerCase();
-
-            Monster zombie1 = db.get(m);
+            
+            System.out.println("In the middle of the room stands a " + db.get(m).getName() + ", ready to fight.");
             
             while(true)
-            {
+            {    
+                System.out.println("Will you attack or protect yourself?");
+                fight = input.nextLine();
+                fight.toLowerCase();
+
+                Monster monster1 = db.get(m);
+            
                 if(fight == "attack")
                 {
-                    Main.playerAttack(zombie1, player1);
+                    int damage = player1.getAttack();
+                    monster1.setHP(-(damage));
+                    System.out.println(monster1.getName() + " sustained " + damage + " damage points, bringing it's health down to " + monster1.getHP());
+                    defend = false;
+                }
+
+                else if(fight == "defend")
+                {
+                    defend = true;
+                    System.out.println("You move into a defensive position and prepare to meet the " + monster1.getName() + "'s attack.");
+                }
+
+                if(monster1.getHP() <= 0)
+                {
+                    System.out.println("You killed the " + monster1.getName() + "!");
+                    int money = monster1.getMoney();
+                    String loot[] = monster1.getLoot();
+
+                    player1.setBal(money);
+
+                    if(loot[0].equals("Leather"))
+                    {
+                        if(loot[1].equals("Helmet"))
+                        {
+                            player1.setHelmet(1);
+                        }
+
+                        else if(loot[1].equals("Chestplate"))
+                        {
+                            player1.setChestplate(1);
+                        }
+
+                        else if(loot[1].equals("Pants"))
+                        {
+                            player1.setPants(1);
+                        }
+
+                        else if(loot[1].equals("Boots"))
+                        {
+                            player1.setBoots(1);
+                        }
+                    }
+
+                    else if(loot[0].equals("Brigandine"))
+                    {
+                        if(loot[1].equals("Helmet"))
+                        {
+                            player1.setHelmet(2);
+                        }
+
+                        else if(loot[1].equals("Chestplate"))
+                        {
+                            player1.setChestplate(2);
+                        }
+
+                        else if(loot[1].equals("Pants"))
+                        {
+                            player1.setPants(2);
+                        }
+
+                        else if(loot[1].equals("Boots"))
+                        {
+                            player1.setBoots(2);
+                        }
+                    }
+
+                    else if(loot[0].equals("Chainmail"))
+                    {
+                        if(loot[1].equals("Helmet"))
+                        {
+                            player1.setHelmet(3);
+                        }
+
+                        else if(loot[1].equals("Chestplate"))
+                        {
+                            player1.setChestplate(3);
+                        }
+
+                        else if(loot[1].equals("Pants"))
+                        {
+                            player1.setPants(3);
+                        }
+
+                        else if(loot[1].equals("Boots"))
+                        {
+                            player1.setBoots(3);
+                        }
+                    }
+
+                    else if(loot[0].equals("Plate"))
+                    {
+                        if(loot[1].equals("Helmet"))
+                        {
+                            player1.setHelmet(4);
+                        }
+
+                        else if(loot[1].equals("Chestplate"))
+                        {
+                            player1.setChestplate(4);
+                        }
+
+                        else if(loot[1].equals("Pants"))
+                        {
+                            player1.setPants(4);
+                        }
+
+                        else if(loot[1].equals("Boots"))
+                        {
+                            player1.setBoots(4);
+                        }
+                    }
+
+                    player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
+
+                    if(loot[2].equals("Stone Club"))
+                    {
+                        player1.setAttack(1, 2);
+                    }
+
+                    else if(loot[2].equals("Steel Sword"))
+                    {
+                        player1.setAttack(2, 3);
+                    }
+
+                    else if(loot[2].equals("Mace"))
+                    {
+                        player1.setAttack(2, 3);
+                    }
+
+                    else if(loot[2].equals("Knightly Sword"))
+                    {
+                        player1.setAttack(3, 4);
+                    }
+
+                    else if(loot[2].equals("Gladius"))
+                    {
+                        player1.setAttack(3, 5);
+                    }
+
+                    else if(loot[2].equals("Ulfberht"))
+                    {
+                        player1.setAttack(4, 6);
+                    }
+
+                    else if(loot[2].equals("Scimitar"))
+                    {
+                        player1.setAttack(5, 7);
+                    }
+
+                    else if(loot[2].equals("LKatana"))
+                    {
+                        player1.setAttack(7, 8);
+                    }
+
+                    System.out.println("You got a " + loot[0] + " " + loot[1] + ", a " + loot[2] + ", and made $" + money + ".");
+                    System.out.println("Your total HP is now " + player1.getTotalHP() + ", your balace is $" + player1.getBal() + ", you have a " + player1.getHelmet() + ", " + player1.getChestplate() + ", " + player1.getPants() + ", and " + player1.getBoots() + ", and " + player1.getGauntlets() + " and " + player1.getShield());
+                    break;
+                }
+
+                //ADD ATTACK SPEED TIMER
+                System.out.print("The " + monster1.getName() + " begins it's attack. You ");
+
+                if(defend == false)
+                {
+                    int damage = monster1.getAttack();
+                    player1.setHP(-(damage));
+                    System.out.println("sustain " + damage + " damage points, bringing your HP to " + player1.getHP());
+                }
+
+                else if(defend == true)
+                {
+                    int damage = monster1.getAttack();
+                    player1.setHP(-(damage) + 1);
+                    System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your HP is " + player1.getHP());
+                }
+
+                if(player1.getHP() <= 0)
+                {
+                    System.out.println("You died. You have lost everything except for your leather armor and stone club.");
+                    player1.setHelmet(1);
+                    player1.setChestplate(1);
+                    player1.setPants(1);
+                    player1.setBoots(1);
+                    player1.setGauntlets(1);
+                    player1.setShield(1);
+                }
+
+                else if(player1.getHP() > 0)
+                {
+
                 }
             }
         }
@@ -153,10 +346,5 @@ public class Main
         System.out.println("");
         System.out.println("At the beginning of each session, you will spawn in with full leather armor and a stone club. As you kill more monsters, you'll be able to get better armor and weapons through their loot. However, if you die you'll lose everything, so be careful!");
         System.out.println("Now go off and explore your dungeon!");
-    }
-
-    public static void playerAttack(Monster zombie1, Player player1)
-    {
-        zombie1.setHP(zombie1.getHP() - player1.getAttack());
     }
 }
