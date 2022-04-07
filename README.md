@@ -41,6 +41,7 @@ Armor Tiers:
 - Chainmail armor (+3 per piece)
 - Plate armor (+4 per piece)
 - Shield (adds +2 armor, marked as 5 in armorType in Monster.getLoot())
+- Gauntlets (adds +1 to attack damage)
 
 Weapon Tiers:
 - Stone Club (1, 2 attack)
@@ -52,7 +53,7 @@ Weapon Tiers:
 - Scimitar (5, 7 attack)
 - Katana (7, 8 attack)
 
-All armor has helmet, chestplate, pants, boots, and gauntlets (gauntlets add to attack damage)
+All armor has helmet, chestplate, pants, and boots
 
 Loot:
 - Zombie: Leather, brigandine, steel sword, mace
