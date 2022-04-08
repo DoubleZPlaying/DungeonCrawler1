@@ -8,7 +8,7 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         ArrayList<Monster> db = new ArrayList<Monster>();
-        Player player1 = new Player(10, 1, 2,10,10);
+        Player player1 = new Player(10, 1, 2);
         Monster zombie = new Monster("Zombie", 10, 1, 3, 1, 1);
         db.add(zombie);
         Monster vampire = new Monster("Vampire", 15, 2, 5, 2, 1);
