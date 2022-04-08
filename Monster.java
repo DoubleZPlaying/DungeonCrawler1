@@ -270,7 +270,7 @@ public class Monster
 
         armorPiece = (int)(Math.random() * (3 + 1) + 1);
 
-        String arr[] = {};
+        String arr[] = {"hi", "hi", "hi"};
         
         //return
         if(armorPiece == 1) //helmet
