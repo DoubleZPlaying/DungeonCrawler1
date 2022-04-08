@@ -1,4 +1,4 @@
-## Dungeon Runner 1 v1.00
+# Dungeon Runner 1 v1.00
 
 # READ ME!
 To run game through run.bat file you MUST change the file path on line 2 to "cd [game file path]"
@@ -10,13 +10,13 @@ Enjoy!
 
 Developed by DoubleZPlaying
 
-# Version History
+## Version History
 - v1.00: first completed model, 4/8/2022
 
 # Monster Stats
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 
-Monsters:
+### Monsters:
 - Zombie
   - 10, 1-3, $10-20 (1), 1/1 (1)
 - Vampire
@@ -30,7 +30,7 @@ Monsters:
 - Sorcerer
   - 25, 7-9, $50-70 (5), 1/3 (3)
 
-Monster Loot:
+### Monster Loot:
 - Zombie: Leather, brigandine, steel sword, mace
 - Vampire: brigandine, steel sword, knightly sword
 - Witch: chainmail, knightly sword, gladius
@@ -42,10 +42,6 @@ Monster Loot:
 # Player Stats
 - HP, Attack Damage 
 - 10, 1-2 
-
-# NOTES
-Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
-Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
 
 # Armor Tiers
 - Leather Armor (+1 per piece)
@@ -65,4 +61,7 @@ Attack damage is diretly correlated to the weapon (if one weapon has 5, and you 
 - Scimitar (5, 7 attack)
 - Katana (7, 8 attack)
 
+# Additional Notes
+Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
+Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
 All armor has helmet, chestplate, pants, and boots
