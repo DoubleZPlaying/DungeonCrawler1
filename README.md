@@ -10,8 +10,8 @@ Enjoy!
 
 Developed by DoubleZPlaying
 
-## Version History
-- v1.00: first completed model, 4/8/2022
+### Version History
+- **v1.00:** first completed model, 4/8/2022
 
 # Monster Stats
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
