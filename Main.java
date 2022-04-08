@@ -27,7 +27,7 @@ public class Main
         player1.setPants(1);
         player1.setBoots(1);
         player1.setGauntlets(0);
-        player1.setShield(0);
+        player1.setShield(0); 
 
         player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
 
