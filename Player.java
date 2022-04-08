@@ -67,6 +67,8 @@ public class Player
     {
         if(helmet > this.helmet)
         {
+            totalHP -= this.helmet;
+            totalHP += helmet;
             this.helmet = helmet;
         }
     }
@@ -103,6 +105,8 @@ public class Player
     {
         if(chestplate > this.chestplate)
         {
+            totalHP -= this.chestplate;
+            totalHP += chestplate;
             this.chestplate = chestplate;
         }
     }
@@ -139,6 +143,8 @@ public class Player
     {
         if(pants > this.pants)
         {
+            totalHP -= this.pants;
+            totalHP += pants;
             this.pants = pants;
         }
     }
@@ -175,6 +181,8 @@ public class Player
     {
         if(boots > this.boots)
         {
+            totalHP -= this.boots;
+            totalHP += boots;
             this.boots = boots;
         }
     }
@@ -211,21 +219,27 @@ public class Player
     {
         if(gauntlets > this.gauntlets)
         {
+            totalHP += gauntlets;
             this.gauntlets = gauntlets;
         }
     }
 
     public String getGauntlets()
     {
-        if(gauntlets == 1)
+        if(gauntlets == 0)
         {
             return "don't have gauntlets";
         }
 
-        else //if(gauntlets == 2)
+        else //if(gauntlets == 1)
         {
             return "do have gauntlets";
         }
+    }
+
+    public int getGauntletsNum()
+    {
+        return gauntlets;
     }
 
     public void setShield(int shield)
@@ -238,7 +252,7 @@ public class Player
 
     public String getShield()
     {
-        if(shield == 1)
+        if(shield == 0)
         {
             return "don't have a shield";
         }
@@ -251,7 +265,7 @@ public class Player
 
     public int getShieldNum()
     {
-        return shield - 1;
+        return shield;
     }
 
     public void setBal(int bal)
