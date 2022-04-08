@@ -32,8 +32,11 @@ public class Main
         String temp;
         String fight;
         boolean defend = false;
+        boolean died = false;
         int in;
         int run = 0;
+        int run2 = 0;
+        int count = 0;
 
         System.out.println("Welcome to DUNGEON CRAWLER 1, v" + version);
         System.out.println("");
@@ -48,19 +51,29 @@ public class Main
             System.out.println("");
             System.out.println("Press ENTER to begin exploring!");
             temp = input.nextLine();
+            System.out.println("You wake up in a small room in a vast dungeon. You have nothing but a set of leather armor and a stone club. There's one door out of the room. You push it open and step through . . .");
         }
 
-        else if(in == 2){}
+        else if(in == 2)
+        {
+            System.out.println("You wake up in a small room in a vast dungeon. You have nothing but a set of leather armor and a stone club. There's one door out of the room. You push it open and step through . . .");
+        }
 
         else
         {
             run = 1;
-            System.out.println("You wake up in a small room in a vast dungeon. You have nothing but a set of leather armor and a stone club. There's one door out of the room. You push it open and step through . . .");
         }
 
         while(run == 0)
         {
-            int m = -1;
+            run2 = 1;
+
+            if(run2 == 1)
+            {
+                Battle.hallWay();
+            }
+
+            int m = 0;
             Battle.room();
 
             if(Battle.monster().equals("zombie"))
@@ -73,53 +86,57 @@ public class Main
                 m = 1;
             }
 
-            else if(Battle.monster().equals("witch"))
+            else if(Battle.monster().equals("witch") && count >= 2)
             {
                 m = 2;
             }
 
-            else if(Battle.monster().equals("troll"))
+            else if(Battle.monster().equals("troll") && count >= 4)
             {
                 m = 3;
             }
 
-            else if(Battle.monster().equals("giant"))
+            else if(Battle.monster().equals("giant") && count >= 7)
             {
                 m = 4;
             }
 
-            else if(Battle.monster().equals("sorcerer"))
+            else if(Battle.monster().equals("sorcerer") && count >= 9)
             {
                 m = 5;
             }
 
             
-            System.out.println("In the middle of the room stands a " + db.get(m).getName() + ", ready to fight.");
+            System.out.println("In the middle of the room stands a " + (db.get(m)).getName() + ", ready to fight.");
             
             while(true)
-            {    
-                System.out.println("Will you attack or protect yourself?");
+            {
+                count++;    
+                System.out.println("Will you attack or defend yourself?");
                 fight = input.nextLine();
                 fight.toLowerCase();
 
                 Monster monster1 = db.get(m);
             
-                if(fight == "attack")
+                if(fight.equals("attack"))
                 {
                     int damage = player1.getAttack();
                     monster1.setHP(-(damage));
-                    System.out.println(monster1.getName() + " sustained " + damage + " damage points, bringing it's health down to " + monster1.getHP());
+                    System.out.println("The " + monster1.getName() + " sustained " + damage + " damage points, bringing it's health down to " + monster1.getHP());
                     defend = false;
                 }
 
-                else if(fight == "defend")
+                else if(fight.equals("defend"))
                 {
                     defend = true;
                     System.out.println("You move into a defensive position and prepare to meet the " + monster1.getName() + "'s attack.");
                 }
 
-                if(monster1.getHP() <= 0)
+                System.out.println();
+
+                if(monster1.getHP() <= 0 && died == false)
                 {
+                    count += 1;
                     System.out.println("You killed the " + monster1.getName() + "!");
                     int money = monster1.getMoney();
                     String loot[] = monster1.getLoot();
@@ -292,39 +309,79 @@ public class Main
 
                         if(!(price.equals("shield")) && !(price.equals("gauntlets")))
                         {
-                            System.out.println("Invalid input. Purchase something next time!")
+                            System.out.println("Invalid input. Purchase something next time!");
+                        }
+
+                        else if(price.equals("shield"))
+                        {
+                            if(player1.getBal() >= 300)
+                            {
+                                player1.setShield(1);
+                                player1.setBal(-300);
+                                System.out.println("Shield bought and equipted!");
+                            }
+
+                            else
+                            {
+                                System.out.println("You can't afford a shield. Try again when you have an additional $" + (300 - player1.getBal()) + ".");
+                            }
+                        }
+
+                        else if(price.equals("gauntlets"))
+                        {
+                            if(player1.getBal() >= 200)
+                            {
+                                player1.setGauntlets(1);
+                                player1.setBal(-200);
+                                System.out.println("Gauntlets bought and equipted!");
+                            }
+
+                            else
+                            {
+                                System.out.println("You can't afford gauntlets. Try again when you have an additional $" + (200 - player1.getBal()) + ".");
+                            }
                         }
                     }
 
                     break;
                 }
 
-                //ADD ATTACK SPEED TIMER
-                System.out.print("The " + monster1.getName() + " begins it's attack. You ");
-
-                if(defend == false)
+                if(count % monster1.getAttackSpeed() == 0)
                 {
-                    int damage = monster1.getAttack();
-                    player1.setHP(-(damage));
-                    System.out.println("sustain " + damage + " damage points, bringing your HP to " + player1.getHP());
+                    System.out.print("The " + monster1.getName() + " begins it's attack. You ");
+
+                    if(defend == false)
+                    {
+                        int damage = monster1.getAttack();
+                        player1.setHP(-(damage));
+                        System.out.println("sustain " + damage + " damage points, bringing your HP to " + player1.getHP());
+                    }
+
+                    else if(defend == true)
+                    {
+                        int damage = monster1.getAttack();
+                        int regen = (int)(Math.random() * (1+1) + 1);
+                        player1.setHP(-(damage) + 1 + regen);
+                        System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your brief respite also allows you to regain " + regen + " HP. Your HP is " + player1.getHP());
+                    }
+
+                    if(player1.getHP() <= 0)
+                    {
+                        System.out.println("You died. You have lost everything except for your leather armor and stone club.");
+                        player1.setHelmet(1);
+                        player1.setChestplate(1);
+                        player1.setPants(1);
+                        player1.setBoots(1);
+                        player1.setGauntlets(0);
+                        player1.setShield(0);
+
+                        break;
+                    }
                 }
 
-                else if(defend == true)
+                else if(count % monster1.getAttackSpeed() == 0 && defend == true)
                 {
-                    int damage = monster1.getAttack();
-                    player1.setHP(-(damage) + 1);
-                    System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your HP is " + player1.getHP());
-                }
-
-                if(player1.getHP() <= 0)
-                {
-                    System.out.println("You died. You have lost everything except for your leather armor and stone club.");
-                    player1.setHelmet(1);
-                    player1.setChestplate(1);
-                    player1.setPants(1);
-                    player1.setBoots(1);
-                    player1.setGauntlets(0);
-                    player1.setShield(0);
+                    System.out.println("The " + monster1.getName() + " is too slow to attack right away, so you have to to attack, should you choose.");
                 }
             }
         }
