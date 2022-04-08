@@ -8,7 +8,7 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         ArrayList<Monster> db = new ArrayList<Monster>();
-        Player player1 = new Player(10, 1, 2,10,10);
+        Player player1 = new Player(10, 1, 2);
         Monster zombie = new Monster("Zombie", 10, 1, 3, 1, 1);
         db.add(zombie);
         Monster vampire = new Monster("Vampire", 15, 2, 5, 2, 1);
@@ -27,7 +27,7 @@ public class Main
         player1.setPants(1);
         player1.setBoots(1);
         player1.setGauntlets(0);
-        player1.setShield(0);
+        player1.setShield(0); 
 
         player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
 
