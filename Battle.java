@@ -10,27 +10,27 @@ public class Battle
 
         if(room == 1)
         {
-            Battle.room1();
+            System.out.println(Battle.room1());
         }
 
         else if(room == 2)
         {
-            Battle.room2();
+            System.out.println(Battle.room2());
         }
 
         else if(room == 3)
         {
-            Battle.room3();
+            System.out.println(Battle.room3());
         }
 
         else if(room == 4)
         {
-            Battle.room4();
+            System.out.println(Battle.room4());
         }
 
         else if(room == 5)
         {
-            Battle.room5();
+            System.out.println(Battle.room5());
         }
     }
 

@@ -8,7 +8,7 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         ArrayList<Monster> db = new ArrayList<Monster>();
-        Player player1 = new Player(10, 1, 2, 5);
+        Player player1 = new Player(10, /*1, 2,*/10,10, 5);
         Monster zombie = new Monster("Zombie", 10, 1, 3, 1, 1);
         db.add(zombie);
         Monster vampire = new Monster("Vampire", 15, 2, 5, 2, 1);
@@ -130,6 +130,11 @@ public class Main
                 {
                     defend = true;
                     System.out.println("You move into a defensive position and prepare to meet the " + monster1.getName() + "'s attack.");
+                }
+
+                else
+                {
+                    System.out.println("You freeze in fear, giving the " + monster1.getName() + " a chance to attack.");
                 }
 
                 System.out.println();
@@ -275,7 +280,12 @@ public class Main
                         player1.setAttack(7, 8);
                     }
 
-                    System.out.println("You got a " + loot[0] + " " + loot[1] + ", a " + loot[2] + ", and made $" + money + ".");
+                    System.out.print("You got ");
+                    if(!(loot[1].equals("Pants")))
+                    {
+                        System.out.print("a ");
+                    }
+                    System.out.println(loot[0] + " " + loot[1] + ", a " + loot[2] + ", and made $" + money + ".");
                     System.out.println("Your total HP is now " + player1.getTotalHP() + ", your balace is $" + player1.getBal() + ", you have a " + player1.getHelmet() + ", " + player1.getChestplate() + ", " + player1.getPants() + ", and " + player1.getBoots() + ", and " + player1.getGauntlets() + " and " + player1.getShield());
                     
                     System.out.println();
@@ -303,14 +313,16 @@ public class Main
                         }
 
                         System.out.println("");
-                        System.out.print("Please input the name of any item within your balance you'd like to buy: $");
+                        System.out.print("Please input the name of any item within your balance you'd like to buy, or enter \"Leave Shop\": ");
                         price = input.nextLine();
                         price.toLowerCase();
 
-                        if(!(price.equals("shield")) && !(price.equals("gauntlets")))
+                        if(!(price.equals("shield")) && !(price.equals("gauntlets")) && !(price.equals("leave shop")))
                         {
                             System.out.println("Invalid input. Purchase something next time!");
                         }
+
+                        else if(price.equals("leave shop")){}
 
                         else if(price.equals("shield"))
                         {
