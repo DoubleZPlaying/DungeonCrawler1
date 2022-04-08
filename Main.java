@@ -26,9 +26,8 @@ public class Main
         player1.setChestplate(1);
         player1.setPants(1);
         player1.setBoots(1);
-        player1.setGauntlets(1);
-        player1.setShield(1);
-        player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
+        player1.setGauntlets(0);
+        player1.setShield(0);
 
         String temp;
         String fight;
@@ -219,8 +218,6 @@ public class Main
                         }
                     }
 
-                    player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
-
                     if(loot[2].equals("Stone Club"))
                     {
                         player1.setAttack(1, 2);
@@ -256,13 +253,49 @@ public class Main
                         player1.setAttack(5, 7);
                     }
 
-                    else if(loot[2].equals("LKatana"))
+                    else if(loot[2].equals("Katana"))
                     {
                         player1.setAttack(7, 8);
                     }
 
                     System.out.println("You got a " + loot[0] + " " + loot[1] + ", a " + loot[2] + ", and made $" + money + ".");
                     System.out.println("Your total HP is now " + player1.getTotalHP() + ", your balace is $" + player1.getBal() + ", you have a " + player1.getHelmet() + ", " + player1.getChestplate() + ", " + player1.getPants() + ", and " + player1.getBoots() + ", and " + player1.getGauntlets() + " and " + player1.getShield());
+                    
+                    System.out.println();
+
+                    //store
+                    if(player1.getHP() > 0 && (player1.getShieldNum() == 0 || player1.getGauntletsNum() == 0))
+                    {
+                        String price;
+                        System.out.println("Welcome to the shop! Buy any necessary upgrades in between battles here! Your current balance is: $" + player1.getBal());
+                        System.out.println("Available items:");
+
+                        if(player1.getGauntletsNum() == 0)
+                        {
+                            System.out.println("- Gauntlets (+1 attack damage), $200");
+                        }
+                        
+                        if(player1.getShieldNum() == 0)
+                        {
+                            System.out.println("- Shield (+2 protection), $300");
+                        }
+
+                        if(!(player1.getShieldNum() == 0 || player1.getGauntletsNum() == 0))
+                        {
+                            System.out.println("No available items!");
+                        }
+
+                        System.out.println("");
+                        System.out.print("Please input the name of any item within your balance you'd like to buy: $");
+                        price = input.nextLine();
+                        price.toLowerCase();
+
+                        if(!(price.equals("shield")) && !(price.equals("gauntlets")))
+                        {
+                            System.out.println("Invalid input. Purchase something next time!")
+                        }
+                    }
+
                     break;
                 }
 
@@ -290,13 +323,8 @@ public class Main
                     player1.setChestplate(1);
                     player1.setPants(1);
                     player1.setBoots(1);
-                    player1.setGauntlets(1);
-                    player1.setShield(1);
-                }
-
-                else if(player1.getHP() > 0)
-                {
-
+                    player1.setGauntlets(0);
+                    player1.setShield(0);
                 }
             }
         }
