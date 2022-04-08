@@ -1,5 +1,9 @@
+import java.util.Scanner;
+
 public class Battle
 {
+    static Scanner input = new Scanner(System.in);
+
     public static void room()
     {
         int room = (int)(Math.random() * (4 + 1) + 1);

@@ -11,6 +11,7 @@ public class Player
     int gauntlets = -1;
     int shield = -1;
     int totalHP = 0;
+    int bal = 0;
 
     public Player(int hp, int attack1, int attack2, int armor)
     {
@@ -37,10 +38,9 @@ public class Player
         return armor;
     }
 
-    public void setTotalHP(int armor)
+    public void setTotalHP(int helemet, int chestplate, int pants, int boots, int shield)
     {
-        this.armor = armor;
-        totalHP = hp + armor;
+        totalHP = hp + helmet + chestplate  + pants + boots + shield;
     }
 
     public int getTotalHP()
@@ -50,8 +50,11 @@ public class Player
 
     public void setAttack(int attack1, int attack2)
     {
-        this.attack1 = attack1;
-        this.attack2 = attack2;
+        if(attack1 >= this.attack1 && attack2 >= this.attack2)
+        {
+            this.attack1 = attack1;
+            this.attack2 = attack2;
+        }
     }
 
     public int getAttack()
@@ -91,6 +94,11 @@ public class Player
         }
     }
 
+    public int getHelmetNum()
+    {
+        return helmet;
+    }
+
     public void setChestplate(int chestplate)
     {
         if(chestplate > this.chestplate)
@@ -120,6 +128,11 @@ public class Player
         {
             return "Plate Chestplate";
         }
+    }
+
+    public int getChestplateNum()
+    {
+        return chestplate;
     }
 
     public void setPants(int pants)
@@ -153,6 +166,11 @@ public class Player
         }
     }
 
+    public int getPantsNum()
+    {
+        return pants;
+    }
+
     public void setBoots(int boots)
     {
         if(boots > this.boots)
@@ -182,6 +200,11 @@ public class Player
         {
             return "Plate Boots";
         }
+    }
+
+    public int getBootsNum()
+    {
+        return boots;
     }
 
     public void setGauntlets(int gauntlets)
@@ -224,5 +247,20 @@ public class Player
         {
             return "do have a shield";
         }
+    }
+
+    public int getShieldNum()
+    {
+        return shield - 1;
+    }
+
+    public void setBal(int bal)
+    {
+        this.bal += bal;
+    }
+
+    public int getBal()
+    {
+        return bal;
     }
 }
