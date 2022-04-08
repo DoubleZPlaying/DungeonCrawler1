@@ -250,7 +250,7 @@ public class Player
     {
         if(shield == 0)
         {
-            return "don't have a shield";
+            return "don't have a shield"; 
         }
 
         else //if(shield == 2)

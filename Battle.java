@@ -75,7 +75,7 @@ public class Battle
 
         else if(hall == 3)
         {
-            System.out.print(Battle.hall3());
+            System.out.print(Battle.hall3()); 
         }
 
         else if(hall == 4)
