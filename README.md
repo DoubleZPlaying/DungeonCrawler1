@@ -10,10 +10,10 @@ Enjoy!
 
 Developed by DoubleZPlaying
 
-# Version History:
+# Version History
 - v1.00: first completed model, 4/8/2022
 
-# Monster Stats:
+# Monster Stats
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 
 Monsters:
@@ -39,15 +39,15 @@ Monster Loot:
 - Sorcerer: chainmail, plate, shield, scimitar, katana
 
 
-# Player Stats:
-HP, Attack Damage
+# Player Stats
+HP, Attack Damage 
 10, 1-2 
 
-# NOTES:
+# NOTES
 Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
 Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
 
-# Armor Tiers:
+# Armor Tiers
 - Leather Armor (+1 per piece)
 - Brigandine armor (+2 per piece)
 - Chainmail armor (+3 per piece)
@@ -55,7 +55,7 @@ Attack damage is diretly correlated to the weapon (if one weapon has 5, and you 
 - Shield (adds +2 armor, marked as 5 in armorType in Monster.getLoot())
 - Gauntlets (adds +1 to attack damage)
 
-# Weapon Tiers:
+# Weapon Tiers
 - Stone Club (1, 2 attack)
 - Steel Sword (2, 3 attack)
 - Mace (3, 3 attack)
