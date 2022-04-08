@@ -40,8 +40,8 @@ Monster Loot:
 
 
 # Player Stats
-HP, Attack Damage 
-10, 1-2 
+- HP, Attack Damage 
+- 10, 1-2 
 
 # NOTES
 Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
