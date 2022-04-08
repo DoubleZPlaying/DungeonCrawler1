@@ -3,7 +3,6 @@ public class Player
     int hp = 0;
     int attack1 = 0;
     int attack2 = 0;
-    int armor = -1;
     int helmet = -1;
     int chestplate = -1;
     int pants = -1;
@@ -13,19 +12,16 @@ public class Player
     int totalHP = 0;
     int bal = 0;
 
-    public Player(int hp, int attack1, int attack2, int armor)
+    public Player(int hp, int attack1, int attack2)
     {
         this.hp = hp;
         this.attack1 = attack1;
         this.attack2 = attack2;
-        this.armor = armor;
-
-        this.totalHP = this.hp + this.armor;
     }
 
     public void setHP(int hp)
     {
-        this.hp += hp;
+        this.hp = hp;
     }
 
     public int getHP()
@@ -33,14 +29,14 @@ public class Player
         return hp;
     }
 
-    public int getArmor()
+    public void setCollectiveHP(int totalHP)
     {
-        return armor;
+        this.totalHP += totalHP;
     }
 
     public void setTotalHP(int helemet, int chestplate, int pants, int boots, int shield)
     {
-        totalHP = hp + helmet + chestplate  + pants + boots + shield;
+        totalHP = hp + helmet + chestplate + pants + boots + shield;
     }
 
     public int getTotalHP()
@@ -276,5 +272,48 @@ public class Player
     public int getBal()
     {
         return bal;
+    }
+
+    public String getWeapon()
+    {
+        if(attack1 == 1 && attack2 == 2)
+        {
+            return "Stone Club";
+        }
+
+        else if(attack1 == 2 && attack2 == 3)
+        {
+            return "Steel Sword";
+        }
+
+        else if(attack1 == 3 && attack2 == 3)
+        {
+            return "Mace";
+        }
+
+        else if(attack1 == 3 && attack2 == 4)
+        {
+            return "Knightly Sword";
+        }
+
+        else if(attack1 == 3 && attack2 == 5)
+        {
+            return "Gladius";
+        }
+
+        else if(attack1 == 4 && attack2 == 6)
+        {
+            return "Ulfberht";
+        }
+
+        else if(attack1 == 5 && attack2 == 7)
+        {
+            return "Scimitar";
+        }
+
+        else //if(attack1 == 7 && attack2 == 8)
+        {
+            return "Katana";
+        }
     }
 }

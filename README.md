@@ -28,7 +28,7 @@ Monsters:
   - 25, 7-9, $50-70 (5), 1/3 (3)
 
 Player Stats:
-HP, Attack Damage, Armor Points (all default)
+HP, Attack Damage
 10, 1-2, 5, 
 
 NOTES:
@@ -46,7 +46,7 @@ Armor Tiers:
 Weapon Tiers:
 - Stone Club (1, 2 attack)
 - Steel Sword (2, 3 attack)
-- Mace (2, 3 attack)
+- Mace (3, 3 attack)
 - Knightly Sword (3, 4 attack)
 - Gladius (3, 5 attack)
 - Ulfberht (4, 6 attack)
