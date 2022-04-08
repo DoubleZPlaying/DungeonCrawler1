@@ -233,7 +233,7 @@ public class Monster
 
             if(armorRoll == 1)
             {
-                armorType = "Chainmail";
+                armorType = "Chainmail"; 
             }
             else if(armorRoll == 2)
             {
