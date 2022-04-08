@@ -1,4 +1,5 @@
 # Dungeon Runner 1 v1.00
+Thanks for choosing to play Dungeon Crawler 1! (The name is a work in progress.) This game isn't very complicated, but read the section below for some useful information!
 
 # READ ME!
 To run game through run.bat file you MUST change the file path on line 2 to "cd [game file path]"
