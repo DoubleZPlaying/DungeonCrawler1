@@ -131,16 +131,12 @@ public class Monster
         //vampire loot
         else if(loot == 2)
         {
-            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            armorRoll = (int)(Math.random() * (0 + 1) + 1);
             weaponRoll = (int)(Math.random() * (1 + 1) + 1);
 
             if(armorRoll == 1)
             {
                 armorType = "Brigandine";
-            }
-            else if(armorRoll == 2)
-            {
-                armorType = "";
             }
 
             if(weaponRoll == 1)
@@ -157,16 +153,12 @@ public class Monster
         //witch loot
         else if(loot == 3)
         {
-            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            armorRoll = (int)(Math.random() * (0 + 1) + 1);
             weaponRoll = (int)(Math.random() * (1 + 1) + 1);
 
             if(armorRoll == 1)
             {
                 armorType = "Chainmail";
-            }
-            else if(armorRoll == 2)
-            {
-                armorType = "";
             }
 
             if(weaponRoll == 1)
@@ -183,16 +175,12 @@ public class Monster
         //troll loot
         else if(loot == 4)
         {
-            armorRoll = (int)(Math.random() * (1 + 1) + 1);
+            armorRoll = (int)(Math.random() * (0 + 1) + 1);
             weaponRoll = (int)(Math.random() * (2 + 1) + 1);
 
             if(armorRoll == 1)
             {
                 armorType = "Chainmail";
-            }
-            else if(armorRoll == 2)
-            {
-                armorType = "";
             }
 
             if(weaponRoll == 1)
@@ -270,7 +258,7 @@ public class Monster
 
         armorPiece = (int)(Math.random() * (3 + 1) + 1);
 
-        String arr[] = {"hi", "hi", "hi"};
+        String arr[] = {"fill", "fill", "fill"};
         
         //return
         if(armorPiece == 1) //helmet

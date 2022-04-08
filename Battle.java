@@ -65,27 +65,27 @@ public class Battle
 
         if(hall == 1)
         {
-            Battle.hall1();
+            System.out.print(Battle.hall1());
         }
 
         else if(hall == 2)
         {
-            Battle.hall2();
+            System.out.print(Battle.hall2());
         }
 
         else if(hall == 3)
         {
-            Battle.hall3();
+            System.out.print(Battle.hall3());
         }
 
         else if(hall == 4)
         {
-            Battle.hall4();
+            System.out.print(Battle.hall4());
         }
 
         else if(hall == 5)
         {
-            Battle.hall5();
+            System.out.print(Battle.hall5());
         }
     }
 

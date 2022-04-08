@@ -8,7 +8,7 @@ public class Main
     {
         Scanner input = new Scanner(System.in);
         ArrayList<Monster> db = new ArrayList<Monster>();
-        Player player1 = new Player(10, /*1, 2,*/10,10, 5);
+        Player player1 = new Player(10, 1, 2,10,10);
         Monster zombie = new Monster("Zombie", 10, 1, 3, 1, 1);
         db.add(zombie);
         Monster vampire = new Monster("Vampire", 15, 2, 5, 2, 1);
@@ -29,6 +29,8 @@ public class Main
         player1.setGauntlets(0);
         player1.setShield(0);
 
+        player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
+
         String temp;
         String fight;
         boolean defend = false;
@@ -39,7 +41,8 @@ public class Main
         int count = 0;
 
         System.out.println("Welcome to DUNGEON CRAWLER 1, v" + version);
-        System.out.println("");
+        System.out.println();
+
         System.out.print("To open the how to play page press 1, to play press 2, to quit press 3: ");
         in = input.nextInt();
         temp = input.nextLine();
@@ -66,44 +69,52 @@ public class Main
 
         while(run == 0)
         {
-            run2 = 1;
-
             if(run2 == 1)
             {
                 Battle.hallWay();
             }
 
+            run2 = 1;
             int m = 0;
             Battle.room();
 
-            if(Battle.monster().equals("zombie"))
+            while(true)
             {
-                m = 0;
-            }
+                if(Battle.monster().equals("zombie"))
+                {
+                    m = 0;
+                    break;
+                }
 
-            else if(Battle.monster().equals("vampire"))
-            {
-                m = 1;
-            }
+                else if(Battle.monster().equals("vampire"))
+                {
+                    m = 1;
+                    break;
+                }
 
-            else if(Battle.monster().equals("witch") && count >= 2)
-            {
-                m = 2;
-            }
+                else if(Battle.monster().equals("witch") && count >= 3)
+                {
+                    m = 2;
+                    break;
+                }
 
-            else if(Battle.monster().equals("troll") && count >= 4)
-            {
-                m = 3;
-            }
+                else if(Battle.monster().equals("troll") && count >= 5)
+                {
+                    m = 3;
+                    break;
+                }
 
-            else if(Battle.monster().equals("giant") && count >= 7)
-            {
-                m = 4;
-            }
+                else if(Battle.monster().equals("giant") && count >= 8)
+                {
+                    m = 4;
+                    break;
+                }
 
-            else if(Battle.monster().equals("sorcerer") && count >= 9)
-            {
-                m = 5;
+                else if(Battle.monster().equals("sorcerer") && count >= 10)
+                {
+                    m = 5;
+                    break;
+                }
             }
 
             
@@ -252,7 +263,7 @@ public class Main
 
                     else if(loot[2].equals("Mace"))
                     {
-                        player1.setAttack(2, 3);
+                        player1.setAttack(3, 3);
                     }
 
                     else if(loot[2].equals("Knightly Sword"))
@@ -286,12 +297,12 @@ public class Main
                         System.out.print("a ");
                     }
                     System.out.println(loot[0] + " " + loot[1] + ", a " + loot[2] + ", and made $" + money + ".");
-                    System.out.println("Your total HP is now " + player1.getTotalHP() + ", your balace is $" + player1.getBal() + ", you have a " + player1.getHelmet() + ", " + player1.getChestplate() + ", " + player1.getPants() + ", and " + player1.getBoots() + ", and " + player1.getGauntlets() + " and " + player1.getShield());
+                    System.out.println("Your total HP is now " + player1.getTotalHP() + ", your balace is $" + player1.getBal() + ", you have a " + player1.getHelmet() + ", " + player1.getChestplate() + ", " + player1.getPants() + ", and " + player1.getBoots() + ", and " + player1.getGauntlets() + " and " + player1.getShield() + ". You are armed with a " + player1.getWeapon() + ".");
                     
                     System.out.println();
 
                     //store
-                    if(player1.getHP() > 0 && (player1.getShieldNum() == 0 || player1.getGauntletsNum() == 0))
+                    if(player1.getTotalHP() > 0 && (player1.getShieldNum() == 0 || player1.getGauntletsNum() == 0))
                     {
                         String price;
                         System.out.println("Welcome to the shop! Buy any necessary upgrades in between battles here! Your current balance is: $" + player1.getBal());
@@ -353,6 +364,8 @@ public class Main
                                 System.out.println("You can't afford gauntlets. Try again when you have an additional $" + (200 - player1.getBal()) + ".");
                             }
                         }
+
+                        System.out.println();
                     }
 
                     break;
@@ -365,35 +378,65 @@ public class Main
                     if(defend == false)
                     {
                         int damage = monster1.getAttack();
-                        player1.setHP(-(damage));
-                        System.out.println("sustain " + damage + " damage points, bringing your HP to " + player1.getHP());
+                        player1.setCollectiveHP(-(damage));
+                        System.out.println("sustain " + damage + " damage points, bringing your HP to " + player1.getTotalHP());
                     }
 
                     else if(defend == true)
                     {
                         int damage = monster1.getAttack();
-                        int regen = (int)(Math.random() * (1+1) + 1);
-                        player1.setHP(-(damage) + 1 + regen);
-                        System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your brief respite also allows you to regain " + regen + " HP. Your HP is " + player1.getHP());
+                        player1.setCollectiveHP(-(damage) + 1);
+
+                        if(player1.getHP() < (player1.getHelmetNum() + player1.getChestplateNum() + player1.getPantsNum() + player1.getBootsNum() + player1.getShieldNum() + player1.getHP()))
+                        {
+                            int regen = (int)(Math.random() * (1+1) + 1);
+                            player1.setCollectiveHP(regen);
+                            System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your brief respite also allows you to regain " + regen + " HP. Your HP is " + player1.getTotalHP() + ".");
+                        }
+
+                        else
+                        {
+                            System.out.println("defend yourself, and take " + (damage - 1) + " damage points, instead of " + damage + " damage points. Your HP is " + player1.getTotalHP() + ".");
+                        }
                     }
 
-                    if(player1.getHP() <= 0)
+                    if(player1.getTotalHP() <= 0)
                     {
-                        System.out.println("You died. You have lost everything except for your leather armor and stone club.");
+                        System.out.println();
+                        System.out.println("YOU DIED. \nYou have lost everything except for your leather armor and stone club.");
+                        System.out.println();
+                        
+                        player1.setHP(10);
                         player1.setHelmet(1);
                         player1.setChestplate(1);
                         player1.setPants(1);
                         player1.setBoots(1);
                         player1.setGauntlets(0);
                         player1.setShield(0);
+                        player1.setTotalHP(player1.getHelmetNum(), player1.getChestplateNum(), player1.getPantsNum(), player1.getBootsNum(), player1.getShieldNum());
+
+                        run2 = 0;
+                        count = 0;
 
                         break;
                     }
                 }
 
-                else if(count % monster1.getAttackSpeed() == 0 && defend == true)
+                else if(count % monster1.getAttackSpeed() != 0)
                 {
-                    System.out.println("The " + monster1.getName() + " is too slow to attack right away, so you have to to attack, should you choose.");
+                    if(defend == true && player1.getHP() < (player1.getHelmetNum() + player1.getChestplateNum() + player1.getPantsNum() + player1.getBootsNum() + player1.getShieldNum() + player1.getHP()))
+                    {
+                        int regen = (int)(Math.random() * (1+1) + 1);
+                        player1.setCollectiveHP(regen);
+                        System.out.println("The " + monster1.getName() +  "is too slow to attack right away. In your preparations to defend yourself, you had a brief moment to regain " + regen + " HP. Your HP is now " + player1.getTotalHP() + ".");
+                    }
+                    
+                    else
+                    {
+                        System.out.print("The " + monster1.getName() +  "is too slow to attack right away. ");
+                    }
+
+                    System.out.println("You can now attack, should you choose.");
                 }
             }
         }
@@ -434,14 +477,14 @@ public class Main
         System.out.println("In the game there are 8 different types of weapons. The following list is all in-game weapons and their attack damage:");
         System.out.println("- Stone Club, 1-2 attack damage");
         System.out.println("- Steel Sword, 2-3 attack damage");
-        System.out.println("- Mace, 2-3 attack damage");
+        System.out.println("- Mace, 3 attack damage");
         System.out.println("- Knightly Sword, 3-4 attack damage");
         System.out.println("- Gladius, 3-5 attack damage");
         System.out.println("- Ulfberht (Viking Sword), 4-6 attack damage");
         System.out.println("- Scimitar, 5-7 attack damage");
         System.out.println("- Katana, 7-8 attack damage");
         System.out.println("");
-        System.out.println("At the beginning of each session, you will spawn in with full leather armor and a stone club. As you kill more monsters, you'll be able to get better armor and weapons through their loot. However, if you die you'll lose everything, so be careful!");
+        System.out.println("At the beginning of each session, you will spawn in with full leather armor and a stone club. As you kill more monsters, you'll be able to get better armor and weapons through their loot. However, if you die you'll lose everything, so be careful! To help prevent dying, try defending during your turn instead of attacking! You'll reduce the monster's damage, and you can even regain some health back!");
         System.out.println("Now go off and explore your dungeon!");
     }
 }
