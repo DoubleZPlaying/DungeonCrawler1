@@ -1,4 +1,4 @@
-# Dungeon Runner 1 v1.00
+## Dungeon Runner 1 v1.00
 
 # READ ME!
 To run game through run.bat file you MUST change the file path on line 2 to "cd [game file path]"
