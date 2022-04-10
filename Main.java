@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Main
 {
-    public static double version = 1.0;
+    public static double version = 1.1;
     public static void main (String[] args)
     {
         Scanner input = new Scanner(System.in);
@@ -39,6 +39,7 @@ public class Main
         int run = 0;
         int run2 = 0;
         int count = 0;
+        int attackCount = 0;
 
         System.out.println("Welcome to DUNGEON CRAWLER 1, v" + version);
         System.out.println();
@@ -54,7 +55,7 @@ public class Main
             System.out.println("");
             System.out.println("Press ENTER to begin exploring!");
             temp = input.nextLine();
-            System.out.println("You wake up in a small room in a vast dungeon. You have nothing but a set of leather armor and a stone club. There's one door out of the room. You push it open and step through . . .");
+            System.out.println("You wake up in a small room in a vast dungeon. You have nothing but a set of leather armor and a stone club, and your HP is " + player1.getTotalHP() + ". There's one door out of the room. You push it open and step through . . .");
         }
 
         else if(in == 2)
@@ -121,8 +122,8 @@ public class Main
             System.out.println("In the middle of the room stands a " + (db.get(m)).getName() + ", ready to fight.");
             
             while(true)
-            {
-                count++;    
+            {    
+                attackCount++;
                 System.out.println("Will you attack or defend yourself?");
                 fight = input.nextLine();
                 fight.toLowerCase();
@@ -152,7 +153,7 @@ public class Main
 
                 if(monster1.getHP() <= 0 && died == false)
                 {
-                    count += 1;
+                    count++;
                     System.out.println("You killed the " + monster1.getName() + "!");
                     int money = monster1.getMoney();
                     String loot[] = monster1.getLoot();
@@ -371,7 +372,7 @@ public class Main
                     break;
                 }
 
-                if(count % monster1.getAttackSpeed() == 0)
+                if(attackCount % monster1.getAttackSpeed() == 0)
                 {
                     System.out.print("The " + monster1.getName() + " begins it's attack. You ");
 
@@ -417,18 +418,19 @@ public class Main
 
                         run2 = 0;
                         count = 0;
+                        attackCount = 0;
 
                         break;
                     }
                 }
 
-                else if(count % monster1.getAttackSpeed() != 0)
+                else if(attackCount % monster1.getAttackSpeed() != 0)
                 {
                     if(defend == true && player1.getHP() < (player1.getHelmetNum() + player1.getChestplateNum() + player1.getPantsNum() + player1.getBootsNum() + player1.getShieldNum() + player1.getHP()))
                     {
                         int regen = (int)(Math.random() * (1+1) + 1);
                         player1.setCollectiveHP(regen);
-                        System.out.println("The " + monster1.getName() +  "is too slow to attack right away. In your preparations to defend yourself, you had a brief moment to regain " + regen + " HP. Your HP is now " + player1.getTotalHP() + ".");
+                        System.out.println("The " + monster1.getName() +  " is too slow to attack right away. In your preparations to defend yourself, you had a brief moment to regain " + regen + " HP. Your HP is now " + player1.getTotalHP() + ".");
                     }
                     
                     else

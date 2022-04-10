@@ -1,5 +1,4 @@
-# Dungeon Runner 1 v1.00
-Thanks for choosing to play Dungeon Crawler 1! (The name is a work in progress.) This game isn't very complicated, but read the section below for some useful information!
+# Dungeon Runner 1 v1.1
 
 # READ ME!
 To run game through run.bat file you MUST change the file path on line 2 to "cd [game file path]"
@@ -11,13 +10,14 @@ Enjoy!
 
 Developed by DoubleZPlaying
 
-### Version History
-- **v1.00:** first completed model, 4/8/2022
+# Version History:
+- v1.0: first completed model, 4/8/2022
+- v1.1: round count and attackCount seperated, 4/10/2022
 
-# Monster Stats
+# Monster Stats:
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 
-### Monsters:
+Monsters:
 - Zombie
   - 10, 1-3, $10-20 (1), 1/1 (1)
 - Vampire
@@ -31,7 +31,7 @@ HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 - Sorcerer
   - 25, 7-9, $50-70 (5), 1/3 (3)
 
-### Monster Loot:
+Monster Loot:
 - Zombie: Leather, brigandine, steel sword, mace
 - Vampire: brigandine, steel sword, knightly sword
 - Witch: chainmail, knightly sword, gladius
@@ -40,11 +40,15 @@ HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 - Sorcerer: chainmail, plate, shield, scimitar, katana
 
 
-# Player Stats
-- HP, Attack Damage 
-- 10, 1-2 
+# Player Stats:
+HP, Attack Damage
+10, 1-2 
 
-# Armor Tiers
+# NOTES:
+Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
+Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
+
+# Armor Tiers:
 - Leather Armor (+1 per piece)
 - Brigandine armor (+2 per piece)
 - Chainmail armor (+3 per piece)
@@ -52,7 +56,7 @@ HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 - Shield (adds +2 armor, marked as 5 in armorType in Monster.getLoot())
 - Gauntlets (adds +1 to attack damage)
 
-# Weapon Tiers
+# Weapon Tiers:
 - Stone Club (1, 2 attack)
 - Steel Sword (2, 3 attack)
 - Mace (3, 3 attack)
@@ -62,7 +66,4 @@ HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
 - Scimitar (5, 7 attack)
 - Katana (7, 8 attack)
 
-# Additional Notes
-Armor points add onto your health (ex: HP = 10, armor points = 10, total HP = 25)
-Attack damage is diretly correlated to the weapon (if one weapon has 5, and you get a new one with 7 your attack damage will only be 7, not 12)
 All armor has helmet, chestplate, pants, and boots
