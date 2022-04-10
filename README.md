@@ -1,4 +1,4 @@
-# Dungeon Runner 1 v1.00
+# Dungeon Runner 1 v1.1
 
 # READ ME!
 To run game through run.bat file you MUST change the file path on line 2 to "cd [game file path]"
@@ -11,7 +11,8 @@ Enjoy!
 Developed by DoubleZPlaying
 
 # Version History:
-- v1.00: first completed model, 4/8/2022
+- v1.0: first completed model, 4/8/2022
+- v1.1: round count and attackCount seperated, 4/10/2022
 
 # Monster Stats:
 HP, Attack Damage, Loot, Attack Speed (mob attack/player attack)
